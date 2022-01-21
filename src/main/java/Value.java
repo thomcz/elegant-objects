@@ -4,4 +4,6 @@ public interface Value {
     Float floatValue();
 
     Double doubleValue();
+
+    Long longValue();
 }

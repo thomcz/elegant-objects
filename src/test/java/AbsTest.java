@@ -45,4 +45,18 @@ class AbsTest {
 
         assertThat(abs.doubleValue()).isEqualTo(5.5d);
     }
+
+    @Test
+    void absLongValue_positive() {
+        Abs abs = new Abs(5L);
+
+        assertThat(abs.longValue()).isEqualTo(5L);
+    }
+
+    @Test
+    void absLongValue_negative() {
+        Abs abs = new Abs(-5L);
+
+        assertThat(abs.longValue()).isEqualTo(5L);
+    }
 }

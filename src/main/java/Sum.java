@@ -31,5 +31,12 @@ public class Sum implements Value {
 
     }
 
+    @Override
+    public Long longValue() {
+        return Arrays.stream(numbers)
+                .mapToLong(Number::longValue)
+                .sum();
+    }
+
 
 }

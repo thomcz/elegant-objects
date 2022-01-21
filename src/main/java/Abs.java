@@ -16,6 +16,11 @@ public class Abs implements Value {
     }
 
     @Override
+    public Long longValue() {
+        return abs().longValue();
+    }
+
+    @Override
     public Double doubleValue() {
         return abs();
     }
