@@ -1,8 +1,24 @@
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class AbsTest {
+
+    @Test
+    void absBigDecimalValue_positive() {
+        Abs abs = new Abs(BigDecimal.valueOf(5));
+
+        assertThat(abs.intValue()).isEqualTo(5);
+    }
+
+    @Test
+    void absBigDecimalValue_negative() {
+        Abs abs = new Abs(BigDecimal.valueOf(-5));
+
+        assertThat(abs.intValue()).isEqualTo(5);
+    }
 
     @Test
     void absIntValue_positive() {
@@ -58,5 +74,12 @@ class AbsTest {
         Abs abs = new Abs(-5L);
 
         assertThat(abs.longValue()).isEqualTo(5L);
+    }
+
+    @Test
+    void correctFloatParsing() {
+        Abs abs = new Abs(0.99f);
+
+        assertThat(abs.doubleValue()).isEqualTo(0.99d);
     }
 }

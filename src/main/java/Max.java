@@ -1,36 +1,51 @@
-public class Max implements Value {
-    private final Number left;
-    private final Number right;
+import java.math.BigDecimal;
 
-    public Max(Number left, Number right) {
+public class Max implements Value {
+    private final BigDecimal left;
+    private final BigDecimal right;
+
+    public Max(Integer left, Integer right) {
+        this(BigDecimal.valueOf(left), BigDecimal.valueOf(right));
+    }
+
+    public Max(Float left, Float right) {
+        this(new BigDecimal(left.toString()), new BigDecimal(right.toString()));
+    }
+
+    public Max(Long left, Long right) {
+        this(BigDecimal.valueOf(left), BigDecimal.valueOf(right));
+    }
+
+    public Max(Double left, Double right) {
+        this(BigDecimal.valueOf(left), BigDecimal.valueOf(right));
+    }
+
+    public Max(BigDecimal left, BigDecimal right) {
         this.left = left;
         this.right = right;
     }
 
+    @Override
     public Integer intValue() {
-        int leftIntValue = left.intValue();
-        int rightIntValue = right.intValue();
-        return leftIntValue > rightIntValue ? leftIntValue : rightIntValue;
+        return max().intValue();
     }
 
     @Override
     public Float floatValue() {
-        float leftFloatValue = left.floatValue();
-        float rightFloatValue = right.floatValue();
-        return leftFloatValue > rightFloatValue ? leftFloatValue : rightFloatValue;
+        return max().floatValue();
     }
 
     @Override
     public Double doubleValue() {
-        double leftDoubleValue = left.doubleValue();
-        double rightDoubleValue = right.doubleValue();
-        return leftDoubleValue > rightDoubleValue ? leftDoubleValue : rightDoubleValue;
+        return max().doubleValue();
     }
 
     @Override
     public Long longValue() {
-        long leftLongValue = left.longValue();
-        long rightLongValue = right.longValue();
-        return leftLongValue > rightLongValue ? leftLongValue : rightLongValue;
+        return max().longValue();
+    }
+
+    private BigDecimal max() {
+        return left.compareTo(right) > 0 ? left : right;
     }
 }

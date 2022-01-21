@@ -27,4 +27,11 @@ class MaxTest {
         Max max = new Max(1.1d, 1.2d);
         assertThat(max.doubleValue()).isEqualTo(1.2d);
     }
+
+    @Test
+    void correctFloatParsing() {
+        Max max = new Max(0.99f, 0.97f);
+
+        assertThat(max.doubleValue()).isEqualTo(0.99d);
+    }
 }
