@@ -4,20 +4,8 @@ public class Max implements Value {
     private final BigDecimal left;
     private final BigDecimal right;
 
-    public Max(Integer left, Integer right) {
-        this(BigDecimal.valueOf(left), BigDecimal.valueOf(right));
-    }
-
-    public Max(Float left, Float right) {
+    public Max(Number left, Number right) {
         this(new BigDecimal(left.toString()), new BigDecimal(right.toString()));
-    }
-
-    public Max(Long left, Long right) {
-        this(BigDecimal.valueOf(left), BigDecimal.valueOf(right));
-    }
-
-    public Max(Double left, Double right) {
-        this(BigDecimal.valueOf(left), BigDecimal.valueOf(right));
     }
 
     public Max(BigDecimal left, BigDecimal right) {
