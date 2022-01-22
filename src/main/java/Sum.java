@@ -1,41 +1,37 @@
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Sum implements Value {
-    private final Number[] numbers;
+    private final Numbers numbers;
 
 
     public Sum(Number... numbers) {
-        this.numbers = numbers;
+        this.numbers = new Numbers(numbers);
     }
 
     @Override
     public Integer intValue() {
-        return Arrays.stream(numbers)
-                .mapToInt(Number::intValue)
-                .sum();
+        return sum().intValue();
     }
 
     @Override
     public Float floatValue() {
-        return (float) Arrays.stream(numbers)
-                .map(String::valueOf)
-                .mapToDouble(Double::parseDouble)
-                .sum();
+        return sum().floatValue();
     }
 
     @Override
     public Double doubleValue() {
-        return Arrays.stream(numbers)
-                .mapToDouble(Number::doubleValue)
-                .sum();
-
+        return sum().doubleValue();
     }
 
     @Override
     public Long longValue() {
-        return Arrays.stream(numbers)
-                .mapToLong(Number::longValue)
-                .sum();
+        return sum().longValue();
+    }
+
+    private BigDecimal sum() {
+        return Arrays.stream(numbers.converting())
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
 

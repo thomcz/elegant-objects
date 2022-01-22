@@ -18,6 +18,13 @@ class SumTest {
     }
 
     @Test
+    void sumOfFloatCorrectParsing() {
+        Value sum = new Sum(0f, 0.99f);
+
+        assertThat(sum.doubleValue()).isEqualTo(0.99d);
+    }
+
+    @Test
     void sumOfDouble() {
         Value sum = new Sum(1.5d, 2.4d);
 
