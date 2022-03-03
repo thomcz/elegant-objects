@@ -1,8 +1,10 @@
+package math;
+
 import java.math.BigDecimal;
 
 public class Abs implements Value {
     private final BigDecimal number;
-    
+
     public Abs(Number number) {
         this(new BigDecimal(number.toString()));
     }

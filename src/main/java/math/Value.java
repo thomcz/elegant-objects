@@ -1,3 +1,5 @@
+package math;
+
 public interface Value {
     Integer intValue();
 

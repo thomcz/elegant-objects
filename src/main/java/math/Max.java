@@ -1,3 +1,5 @@
+package math;
+
 import java.math.BigDecimal;
 
 public class Max implements Value {
