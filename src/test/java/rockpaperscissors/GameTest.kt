@@ -10,7 +10,7 @@ class GameTest {
         val player1 = Player("player1", Rock())
         val player2 = Player("player2", Paper())
 
-        val game = Game(player1, player2)
+        val game = Game(player1 = player1, player2 = player2)
         val result = game.run()
 
         assertThat(result.winner()).isEqualTo("player2 won player2 choose Paper, player1 choose Rock")

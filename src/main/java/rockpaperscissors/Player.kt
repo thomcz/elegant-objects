@@ -1,7 +1,7 @@
 package rockpaperscissors
 
 class Player(val name: String, val move: Move) {
-    fun vs(opponent: Player): Result {
+    fun vs(opponent: Player = Player("", Rock())): Result {
         val result = move.vs(opponent.move)
         return when {
             result == 0 -> Tie(this, opponent)
